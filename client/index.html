@@ -3,19 +3,18 @@
 <head>
   <title>Giphy2</title>
   <meta charset='utf8'>
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body ng-controller="MessagesController as messages">
-
-  <div ng-repeat='giph in messages.giphs'>
-    <img ng-src="{{giph.images.downsized.url}}"></img>
-  </div>
 
   <form ng-submit="messages.addMessage(messages.text)">
     <input ng-model="messages.text" type='text'>
   </form>
 
-  <div ng-repeat='message in messages.data'>{{ message.text }}</div>
-
+  <div ng-repeat='message in messages.data'>
+    <img ng-click="messages.remove(message)" ng-class='downsize' ng-src="{{ message.url }}"></img>
+    <span>{{ message.text }}</span>
+  </div>
 
   <script src='config.js'></script>
   <script src='.././bower_components/angular/angular.js'></script>
