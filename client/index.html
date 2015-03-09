@@ -7,7 +7,7 @@
 <body ng-controller="MessagesController as messages">
 
   <div ng-repeat='giph in messages.giphs'>
-    <img ng-href="{{giph.images.downsized.url}}">hello</img>
+    <img ng-src="{{giph.images.downsized.url}}"></img>
   </div>
 
   <form ng-submit="messages.addMessage(messages.text)">

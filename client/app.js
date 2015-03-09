@@ -19,7 +19,6 @@ function MessagesController ($scope, Messages, GiphyApi) {
   vm.addMessage = function(text){
     GiphyApi.getGiphy(text)
       .then(function (data) {
-        console.log(data.data)
         vm.giphs = data.data;
       });
     //perhaps add message and url together;
@@ -32,13 +31,11 @@ Messages.$inject = ['$firebaseArray'];
 function Messages ($firebaseArray) {
   var giphy = new Firebase(firebaseURL+"/giphy");
   var data = $firebaseArray(giphy);
-
   return {
     giphy: giphy,
     data: data,  
     addMessage: addMessage,
   }
-
   function addMessage (text) {
     data.$add({text: text});
   };
