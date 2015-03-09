@@ -6,6 +6,7 @@ var AppView = Backbone.View.extend({
     //create view for gifs collection
     var gifs = this.model.get('gifs')
     this.gifsView = new GifsView({collection: gifs});
+    this.formView = new FormView({el: $('#FormView'), collection: gifs});
   },
 
   render: function(){
