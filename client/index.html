@@ -1,37 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html ng-app='giphy'>
 <head>
   <title>Giphy2</title>
   <meta charset='utf8'>
 </head>
-<body>
+<body ng-controller="MessagesController as messages">
 
+  <form ng-submit="messages.addMessage(messages.text)">
+    <input ng-model="messages.text" type='text'>
+  </form>
 
-  <div class='container'>
-    <div id='FormView'>
-      <form>
-        <input type='text' id='message'></input>
-        <input type='submit' id='send'></input>
-      </form>
-    </div>
+  <div ng-repeat='message in messages.data'>{{ message.text }}</div>
 
-  </div>
-
-  <script src='.././bower_components/jquery/dist/jquery.js'></script>
+  <script src='config.js'></script>
+  <script src='.././bower_components/angular/angular.js'></script>
+  <script src='.././bower_components/angularfire/dist/angularfire.js'></script>
   <script src='.././bower_components/firebase/firebase.js'></script>
-  <script src='.././bower_components/underscore/underscore.js'></script>
-  <script src='.././bower_components/backbone/backbone.js'></script>
-
-  
-  <script src='./models/AppModel.js'></script>
-  <script src='./views/AppView.js'></script>
-  <script src='./views/FormView.js'></script>
-
-  <script src='./models/GifModel.js'></script>
-  <script src='./collections/Gifs.js'></script>
-  <script src='./views/GifsView.js'></script>
-  <script src='./views/GifView.js'></script>
-
   <script src='app.js'></script>
 </body>
 </html>
